@@ -1,0 +1,20 @@
+[API]
+
+api_key = <SECRET>
+
+end_point = https://openapi.etsy.com/v2/
+
+[API_METHODS]
+
+getSellerTaxonomy = taxonomy/seller/get
+# https://www.etsy.com/developers/documentation/reference/taxonomy
+
+[PATHS]
+
+home = https://www.etsy.com/fr/
+categories = https://www.etsy.com/fr/c/
+
+[COUNTRY_CODES]
+
+# France
+current = 3017382
