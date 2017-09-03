@@ -1,5 +1,6 @@
-/_outputs
-/.idea
+/_outputs/
+/.idea/
+__pycache__/
 
 etsy.conf
 .DS_Store
