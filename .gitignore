@@ -4,5 +4,6 @@ __pycache__/
 
 etsy.conf
 .DS_Store
+
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
