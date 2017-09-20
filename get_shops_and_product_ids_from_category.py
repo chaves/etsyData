@@ -21,7 +21,7 @@ step = 0
 
 while step < STEPS_MAX:
 
-    es = EtsyScraping()
+    etsy = EtsyScraping()
 
     df = pd.read_excel(CATEGORIES_CONTROL_FILE)
     
@@ -35,13 +35,13 @@ while step < STEPS_MAX:
         
         path = list(df.loc[idx, 'l3_path'])[0]
         
-        data = es.get_shops_and_product_ids_from_category(path)
+        data = etsy.get_shops_and_product_ids_from_category(path)
         file_name = OUTPUT_PATH + path + '.json'
         
         with open(file_name, 'w') as file:
             json.dump(data, file, indent=4)
             
-        df.loc[idx, 'pages_total'] = es.get_pages_total()
+        df.loc[idx, 'pages_total'] = etsy.get_pages_total()
         df.loc[idx, 'shops'] = 'OK'
         
         df.to_excel(CATEGORIES_CONTROL_FILE, index=False, header=True)

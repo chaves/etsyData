@@ -26,7 +26,7 @@ class EtsyScraping(object):
     def get_request(self, url):
         response = requests.get(url, params=self.params)
         if response.status_code != 200:
-            logger.warning('Response si not 200! reason: {}, because: {}'.format(
+            logger.warning('Response is not 200! reason: {}, because: {}'.format(
                 response.status_code, response.text
             ))
         return response
