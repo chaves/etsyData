@@ -37,13 +37,13 @@ while step < STEPS_MAX:
 
         file_name = OUTPUT_PATH + shop_id + '.json'
 
-    with open(file_name, 'w') as file:
+        with open(file_name, 'w') as file:
 
-        json.dump(data, file, indent=4)
-        df.loc[idx, 'checkedDate'] = etsy.get_date_now()
+            json.dump(data, file, indent=4)
+            df.loc[idx, 'checkedDate'] = etsy.get_date_now()
 
-        df.to_excel(SHOPS_CONTROL_FILE, index=True, header=True)
+            df.to_excel(SHOPS_CONTROL_FILE, index=True, header=True)
 
     step += 1
     print('Step :{}'.format(step))
-    time.sleep(2)
+    time.sleep(3)
