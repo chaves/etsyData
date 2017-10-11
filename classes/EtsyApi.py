@@ -34,7 +34,7 @@ class EtsyApi(object):
         )
         return url
 
-    def get(self, method, params=None, timeout=5):
+    def get(self, method, params=None, timeout=5, root=False):
         url = self.request_url(method, params)
         response = requests.get(url, timeout=timeout)
 
@@ -42,9 +42,11 @@ class EtsyApi(object):
             logger.warning('Response is not 200! reason: {}, because: {}'.format(
                 response.status_code, response.text
             ))
-            return
+            return False
 
         data = response.json()
+        if root:
+            return data
         return data and data['results'][0] if data['count'] == 1 else data['results']
 
     def get_seller_taxonomy(self):
@@ -70,5 +72,5 @@ class EtsyApi(object):
     def get_shop_listings(self, shop_id, page=1):
         return self.get(
             'shops/{}/listings/active'.format(shop_id),
-            {'includes': 'MainImage', 'limit': 10, 'page': page},
+            {'page': page}, root=True
         )
